@@ -6,18 +6,43 @@ const increaseButton = document.getElementById("increase");
 const decreaseButton = document.getElementById("decrease");
 const resetButton = document.getElementById("reset");
 
-increaseButton.addEventListener("click",function () {
+function updateCounter() {
+
+    countDisplay.textContent = count;
+
+    if (count > 0) {
+        countDisplay.style.color = "lime";
+    }
+
+    else if (count < 0) {
+        countDisplay.style.color = "red";
+    }
+
+    else {
+        countDisplay.style.color = "white";
+    }
+}
+
+increaseButton.addEventListener("click", function () {
+
     count++;
-    countDisplay.textContent = count;
+
+    updateCounter();
+
 });
 
-decreaseButton.addEventListener("click",function () {
+decreaseButton.addEventListener("click", function () {
+
     count--;
-    countDisplay.textContent =count;
+
+    updateCounter();
+
 });
 
-resetButton.addEventListener("click",function () {
+resetButton.addEventListener("click", function () {
+
     count = 0;
-    countDisplay.textContent = count;
+
+    updateCounter();
 
 });
